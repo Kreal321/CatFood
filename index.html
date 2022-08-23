@@ -6,232 +6,157 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body class="bg-light" data-new-gr-c-s-check-loaded="14.1071.0" data-gr-ext-installed="">
-
+<body>
     <div class="container">
-        <main>
-            <div class="py-5 text-center">
-                <!-- <img class="d-block mx-auto mb-4" src="bootstrap-logo.svg" alt="" width="72" height="57"> -->
-                <h2>Cat Food Calculator</h2>
-                <p class="lead">Below is an example.</p>
-            </div>
-
-            <div class="row g-5">
-                <div class="col-md-5 col-lg-4 order-md-last">
-                    <h4 class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="text-primary">最优材料分配</span>
-                        <span class="badge bg-primary rounded-pill">$100</span>
-                    </h4>
-                    <ul class="list-group mb-3">
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0">鸡腿</h6>
-                                <small class="text-muted">鸭腿</small>
+        <div class="row">
+            <div class="col-left">
+                <div class="card">
+                    <div class="card__header">
+                        <h2 class="card__title">
+                            Cat Food Calculator
+                        </h2>
+                        <div class="selector">
+                            <div class="selector__items active">
+                                Standard
                             </div>
-                            <div id="legDisplay">
-                                <h6 class="my-0">1947 g</h6>
-                                <small class="text-success">0 g</small>
+                            <div class="selector__items">
+                                Metric
                             </div>
-                            
-                        </li>
-                        <li class="list-group-item d-none justify-content-between lh-sm" id="heartView">
-                            <div>
-                                <h6 class="my-0">鸡心</h6>
-                                <small class="text-muted">鸭心/牛肉</small>
-                            </div>
-                            <div id="heartDisplay">
-                                <h6 class="my-0">0 g</h6>
-                                <small class="text-success">0 g</small>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0">鸡蛋</h6>
-                                <small class="text-muted">鸡蛋液</small>
-                            </div>
-                            <div id="eggDisplay">
-                                <h6 class="my-0">796 g</h6>
-                                <small class="text-success">1 g</small>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0">鸡肝</h6>
-                                <small class="text-muted">鸭肝</small>
-                            </div>
-                            <div id="chickenLiverDisplay">
-                                <h6 class="my-0">380 g</h6>
-                                <small class="text-success">1 g</small>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0">猪瘦肉</h6>
-                                <small class="text-muted">鸭肉/里脊肉</small>
-                            </div>
-                            <div id="leanDisplay">
-                                <h6 class="my-0">1380 g</h6>
-                                <small class="text-success">1 g</small>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0">牛肝</h6>
-                                <small class="text-muted">羊肝</small>
-                            </div>
-                            <div id="beefLiverDisplay">
-                                <h6 class="my-0">354 g</h6>
-                                <small class="text-success">0 g</small>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0">牛肉</h6>
-                                <small class="text-muted">牛心</small>
-                            </div>
-                            <div id="beefDisplay">
-                                <h6 class="my-0">2743 g</h6>
-                                <small class="text-success">0 g</small>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0">三文鱼</h6>
-                                <small class="text-muted">青占鱼/秋刀鱼/马鲛鱼</small>
-                            </div>
-                            <div id="fishDisplay">
-                                <h6 class="my-0">955 g</h6>
-                                <small class="text-success">1 g</small>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0">青口</h6>
-                                <small class="text-muted">淡菜</small>
-                            </div>
-                            <div id="musselDisplay">
-                                <h6 class="my-0">318 g</h6>
-                                <small class="text-success">1 g</small>
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between bg-light">
-                            <div>
-                                <h6 class="my-0">实际</h6>
-                                <small class="text-muted">预计</small>
-                            </div>
-                            <div id="musselDisplay">
-                                <h6 class="my-0" id="totalNumDisplay">8873 g</h6>
-                                <small class="text-muted" id="totalDisplay">8873 g</small>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-md-7 col-lg-8">
-                    <h4 class="mb-3">现有的材料</h4>
-                    <form id="form">
-                        <div class="row g-3">
-
-                            <div class="col-12">
-                                <label for="username" class="form-label">鸡腿/鸭腿</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text">重量</span>
-                                    <input type="number" class="form-control" name="legVal" placeholder="g" value="1947">
-                                    <span class="input-group-text">价格</span>
-                                    <input type="number" class="form-control" name="legPrice" placeholder="per pound" value="0">
-                                </div>
-                            </div>
-                            <div class="col-12 d-none" id="heartInput">
-                                <label for="username" class="form-label">鸡心/鸭心</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text">重量</span>
-                                    <input type="number" class="form-control" name="heartVal" placeholder="g" value="1328">
-                                    <span class="input-group-text">价格</span>
-                                    <input type="number" class="form-control" name="heartPrice" placeholder="per pound" value="0">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <label for="username" class="form-label">鸡蛋</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text">重量</span>
-                                    <input type="number" class="form-control" name="eggVal" placeholder="g" value="797">
-                                    <span class="input-group-text">价格</span>
-                                    <input type="number" class="form-control" name="eggPrice" placeholder="per pound" value="0">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <label for="username" class="form-label">鸡肝/鸭肝</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text">重量</span>
-                                    <input type="number" class="form-control" name="chickenLiverVal" placeholder="g" value="381">
-                                    <span class="input-group-text">价格</span>
-                                    <input type="number" class="form-control" name="chickenLiverPrice" placeholder="per pound" value="0">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <label for="username" class="form-label">猪瘦肉/鸭肉/里脊肉</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text">重量</span>
-                                    <input type="number" class="form-control" name="leanVal" placeholder="g" value="1381">
-                                    <span class="input-group-text">价格</span>
-                                    <input type="number" class="form-control" name="leanPrice" placeholder="per pound" value="0">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <label for="username" class="form-label">牛肝/羊肝</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text">重量</span>
-                                    <input type="number" class="form-control" name="beefLiverVal" placeholder="g" value="354">
-                                    <span class="input-group-text">价格</span>
-                                    <input type="number" class="form-control" name="beefLiverPrice" placeholder="per pound" value="0">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <label for="username" class="form-label">牛肉/牛心</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text">重量</span>
-                                    <input type="number" class="form-control" name="beefVal" placeholder="g" value="2743">
-                                    <span class="input-group-text">价格</span>
-                                    <input type="number" class="form-control" name="beefPrice" placeholder="per pound" value="0">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <label for="username" class="form-label">三文鱼/青占鱼/秋刀鱼/马鲛鱼</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text">重量</span>
-                                    <input type="number" class="form-control" name="fishVal" placeholder="g" value="956">
-                                    <span class="input-group-text">价格</span>
-                                    <input type="number" class="form-control" name="fishPrice" placeholder="per pound" value="0">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <label for="username" class="form-label">青口/淡菜</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text">重量</span>
-                                    <input type="number" class="form-control" name="musselVal" placeholder="g" value="319">
-                                    <span class="input-group-text">价格</span>
-                                    <input type="number" class="form-control" name="musselPrice" placeholder="per pound" value="0">
-                                </div>
-                            </div>
-
-                        <hr class="my-4">
-
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="noHeart" checked>
-                            <label class="form-check-label" for="same-address">不使用鸡心/鸭心（将会使用牛肉代替）</label>
                         </div>
+                    </div>
+    
+    
+                    <hr>
 
-                        <hr class="my-4">
 
-                       </form>
+                    <div class="card__body">
+                        <form action="javascript:void(0)" id="form">
+
+                        
+                            <div id="ingredients">
+                                <div class="col-12 ingredient">
+                                    <h3 class="input-label">鸡腿</h3>
+                                    <div class="input-group">
+                                        <span>重量</span>
+                                        <input type="number" placeholder="g" value="1947">
+                                        <span>价格</span>
+                                        <input type="number" placeholder="per pound" value="0">
+                                    </div>
+                                </div>
+                                <div class="col-12 ingredient">
+                                    <h3 class="input-label">鸡腿</h3>
+                                    <div class="input-group">
+                                        <span>重量</span>
+                                        <input type="number" placeholder="g" value="1947">
+                                        <span>价格</span>
+                                        <input type="number" placeholder="per pound" value="0">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ingredient__buttons">
+                                <div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">最优解</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">用尽材料</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="button button__flex button__transition-x" id="calBtn">计算 <i class="bi bi-chevron-right button__icon"></i></div>
+                                
+                                
+                            </div>
+                        </form>
+
+                    </div>
+
+    
                 </div>
             </div>
-        </main>
+
+
+            <div class="col-right">
+                <div class="card">
+                    <div class="card__header">
+                        <h2 class="card__title">
+                            Result
+                        </h2>
+                        <div class="selector">
+                            <div class="selector__items active">
+                                最优解
+                            </div>
+                            <div class="selector__items">
+                                用尽材料
+                            </div>
+                        </div>
+                    </div>
+    
+    
+                    <hr>
+
+                    <div class="card__body">
+
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th>材料</th>
+                                <th>最优方案</th>
+                                <th colspan="2">实际重量</th>
+                              </tr>
+                            </thead>
+                            <tbody id="optimalList">
+                               
+                                <tr>
+                                    <td>鸡腿</td>
+                                    <td>1947 g</td>
+                                    <td>1947 g</td>
+                                    <td class="warning__color">缺少 10 g</td>
+                                </tr>
+                                <tr>
+                                    <td>鸡腿</td>
+                                    <td>1947 g</td>
+                                    <td>1947 g</td>
+                                    <td class="success__color">富余 20 g</td>
+                                </tr>
+                                <tr>
+                                    <td>鸡腿</td>
+                                    <td>1947 g</td>
+                                    <td>1947 g</td>
+                                    <td class="danger__color">需要采购 2000 g</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" colspan="2">总计</td>
+                                    <td>重量</td>
+                                    <td>20 g</td>
+                                </tr>
+                                <tr>
+                                    <td>价格</td>
+                                    <td>200 刀</td>
+                                </tr>
+                               
+
+                            </tbody>
+                          </table>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+            
+    
 
         <footer class="my-5 pt-5 text-muted text-center text-small">
             <p class="mb-1">© 2022 Kreal</p>
@@ -242,11 +167,9 @@
             </ul>
         </footer>
     </div>
+    <script src="js/app.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="app.js"></script>
+
 
 </body>
 
