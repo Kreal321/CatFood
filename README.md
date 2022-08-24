@@ -12,6 +12,11 @@ https://kreal321.github.io/CatFood/
 - [ ] Language
 
 ## Change History
+
+### Develop 0.2
+1. Add Unit Change
+2. Fix some small bugs
+
 ### Develop 0.1
 1. Redesign business logic and file structure
 2. Redesign page layout
