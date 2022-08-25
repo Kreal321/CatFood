@@ -13,6 +13,11 @@ https://kreal321.github.io/CatFood/
 
 ## Change History
 
+### Develop 0.3
+1. Fixed typeError bug
+2. Change initial data to standard unit
+3. Seperate recipes data from business logic file.
+
 ### Develop 0.2
 1. Add Unit Change
 2. Fix some small bugs

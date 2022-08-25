@@ -16,8 +16,8 @@ class Ingredient {
   }
 
   updateData(unitPrice, initValue) {
-    this.unitPrice = unitPrice;
-    this.currentValue = initValue;
+    this.unitPrice = parseFloat(unitPrice);
+    this.currentValue = parseFloat(initValue);
   }
 
   calResult(expectedTotalValue) {
@@ -65,42 +65,13 @@ class Ingredient {
 
 }
 
-const catFood = {
-  title: "猫食有鸡心",
-  ingredients: [
-    { name: "鸡腿", proportion: 0.22, unitPrice: 0.0043872, initValue: 1947 },
-    { name: "鸡心", proportion: 0.15, unitPrice: 0, initValue: 1328 },
-    { name: "鸡蛋", proportion: 0.09, unitPrice: 0, initValue: 797 },
-    { name: "鸡肝", proportion: 0.043, unitPrice: 0, initValue: 381 },
-    { name: "猪瘦肉", proportion: 0.156, unitPrice: 0, initValue: 1381 },
-    { name: "牛肝", proportion: 0.04, unitPrice: 0, initValue: 354 },
-    { name: "牛肉", proportion: 0.16, unitPrice: 0, initValue: 2743 },
-    { name: "三文鱼", proportion: 0.108, unitPrice: 0, initValue: 956 },
-    { name: "青口", proportion: 0.036, unitPrice: 0, initValue: 319 },
-  ],
-};
-
-const catFood2 = {
-  title: "猫食无鸡心",
-  ingredients: [
-    { name: "鸡腿", proportion: 0.22, unitPrice: 0.0043872, initValue: 1947 },
-    { name: "鸡蛋", proportion: 0.09, unitPrice: 0, initValue: 797 },
-    { name: "鸡肝", proportion: 0.043, unitPrice: 0, initValue: 381 },
-    { name: "猪瘦肉", proportion: 0.156, unitPrice: 0, initValue: 1381 },
-    { name: "牛肝", proportion: 0.04, unitPrice: 0, initValue: 354 },
-    { name: "牛肉", proportion: 0.31, unitPrice: 0, initValue: 2743 },
-    { name: "三文鱼", proportion: 0.108, unitPrice: 0, initValue: 956 },
-    { name: "青口", proportion: 0.036, unitPrice: 0, initValue: 319 },
-  ],
-};
-
 var ingredients = [];
 const METRIC = 0, STANDARD = 1;
 const unitSign = {
   0: "g",
   1: "lb",
 };
-var unit = METRIC;
+var unit = recipes.unit;
 
 const standardUnitBtn = document.getElementById('StandardUnitBtn');
 const metricUnitBtn = document.getElementById('MetricUnitBtn');
@@ -221,7 +192,7 @@ function updateRecipe(recipe) {
   updateRecipeDisplay();
 }
 
-updateRecipe(catFood2);
+updateRecipe(recipes.recipes[1]);
 
 document.getElementById('calBtn').addEventListener('click', calculate);
 
