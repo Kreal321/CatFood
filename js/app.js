@@ -85,9 +85,10 @@ function updateRecipeDisplay() {
       <h3 class="input-label">${i.name}</h3>
       <div class="input-group">
           <span>重量</span>
-          <input type="number" placeholder="${unitSign[unit]}" value="${i.currentValue.toFixed(2)}" name="${idx}-weight">
+          <input type="number" step="any" placeholder="${unitSign[unit]}" value="${i.currentValue.toFixed(2)}" name="${idx}-weight">
           <span>价格</span>
-          <input type="number" placeholder="per ${unitSign[unit]}" value="${i.unitPrice.toFixed(2)}" name="${idx}-price"}>
+          <input type="number" step="any" placeholder="per ${unitSign[unit]}" value="${i.unitPrice.toFixed(2)}" name="${idx}-price"}>
+          <button class="button button__flex button__transition-x" onclick="calculateCurrent(${idx})">选定 <i class="bi bi-chevron-right button__icon"></i></button>
       </div>
     </div>
     `;
@@ -165,11 +166,28 @@ function calOptimalResult() {
 }
 
 
+function calGivenResult(idx) {
+  console.log(idx);
+  const expectedTotalValue = ingredients[idx].currentValue / ingredients[idx].proportion;
+  console.log(expectedTotalValue);
+
+  for (var i = 0; i < ingredients.length; i++) {
+    ingredients[i].calResult(expectedTotalValue);
+  }
+}
+
+
 function updateIngredientsData() {
   const form = document.getElementById('form');
   for (var i = 0; i < ingredients.length; i++) {
     ingredients[i].updateData(form[i+'-price'].value, form[i+'-weight'].value);
   }
+}
+
+function calculateCurrent(idx) {
+  updateIngredientsData();
+  calGivenResult(idx);
+  updateRecipeDisplay();
 }
 
 function calculate() {
