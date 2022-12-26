@@ -6,160 +6,151 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
 </head>
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-left">
-                <div class="card">
-                    <div class="card__header">
-                        <h2 class="card__title">
-                            Cat Food Calculator
-                        </h2>
-                        <div class="selector">
-                            <div class="selector__items active" id="StandardUnitBtn">
-                                Standard
+        <main>
+            <div class="row">
+                <div class="col-lg-7 my-3">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>Cat Food Calculator</div>
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary active" id="StandardUnitBtn">Standard (oz)</button>
+                                    <!-- <button class="btn btn-outline-primary" >Standard (oz)</button> -->
+                                    <button class="btn btn-outline-primary" id="MetricUnitBtn">Metric (g)</button>
+                                </div>
                             </div>
-                            <div class="selector__items" id="MetricUnitBtn">
-                                Metric
-                            </div>
+
+                            <hr>
+    
+                            <form action="javascript:void(0)" id="form">
+
+                                <div id="ingredients">
+                                    <div class="mb-3">
+                                        <label class="form-label">鸡腿</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">重量</span>
+                                            <input type="number" class="form-control" placeholder="g" value="1947">
+                                            <span class="input-group-text">价格</span>
+                                            <input type="number" class="form-control" placeholder="per pound" value="0">
+                                            <button class="btn btn-outline-secondary" > 设为基准 <i class="bi bi-chevron-right"></i></button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="form-label">鸡腿</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">重量</span>
+                                            <input type="number" class="form-control" placeholder="g" value="1947">
+                                            <span class="input-group-text">价格</span>
+                                            <input type="number" class="form-control" placeholder="per pound" value="0">
+                                            <button class="btn btn-outline-secondary" > 设为基准 <i class="bi bi-chevron-right"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+                                <div class="d-flex justify-content-between align-items-center mt-5">
+                                    <div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option1">
+                                            <label class="form-check-label" for="inlineRadio1">最优解</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option2">
+                                            <label class="form-check-label" for="inlineRadio2">用尽材料</label>
+                                        </div>
+                                    </div>
+                           
+                                    <div>
+                                        <button class="btn btn-outline-danger" id="clearBtn"> 清空 <i class="bi bi-chevron-right"></i></button>
+                                        <button class="btn btn-outline-primary" id="calBtn"> 计算 <i class="bi bi-chevron-right"></i></button>
+                                    </div>
+    
+                                </div>
+                                
+                            </form>
                         </div>
                     </div>
+                </div>
+                
     
-    
-                    <hr>
-
-
-                    <div class="card__body">
-                        <form action="javascript:void(0)" id="form">
-
+                <div class="col-lg-5 my-3">
+                    <div class="card">
+                        <div class="card-body">
+                            
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>Result</span>
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary" id="StandardUnitBtn">最优解</button>
+                                    <button class="btn btn-outline-primary" >用尽材料</button>
+                                </div>
+                            </div>
                         
-                            <div id="ingredients">
-                                <div class="col-12 ingredient">
-                                    <h3 class="input-label">鸡腿</h3>
-                                    <div class="input-group">
-                                        <span>重量</span>
-                                        <input type="number" placeholder="g" value="1947">
-                                        <span>价格</span>
-                                        <input type="number" placeholder="per pound" value="0">
-                                    </div>
-                                </div>
-                                <div class="col-12 ingredient">
-                                    <h3 class="input-label">鸡腿</h3>
-                                    <div class="input-group">
-                                        <span>重量</span>
-                                        <input type="number" placeholder="g" value="1947">
-                                        <span>价格</span>
-                                        <input type="number" placeholder="per pound" value="0">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="ingredient__buttons">
-                                <div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                        <label class="form-check-label" for="inlineRadio1">最优解</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                        <label class="form-check-label" for="inlineRadio2">用尽材料</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="button button__flex button__transition-x" id="calBtn">计算 <i class="bi bi-chevron-right button__icon"></i></div>
-                                
-                                
-                            </div>
-                        </form>
-
-                    </div>
-
+                            <hr>
     
-                </div>
-            </div>
-
-
-            <div class="col-right">
-                <div class="card">
-                    <div class="card__header">
-                        <h2 class="card__title">
-                            Result
-                        </h2>
-                        <div class="selector">
-                            <div class="selector__items active">
-                                最优解
-                            </div>
-                            <div class="selector__items">
-                                用尽材料
-                            </div>
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th>材料</th>
+                                    <th>最优方案</th>
+                                    <th colspan="2">实际重量</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="optimalList">
+                                   
+                                    <tr>
+                                        <td>鸡腿</td>
+                                        <td>1947 g</td>
+                                        <td>1947 g</td>
+                                        <td class="warning__color">缺少 10 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>鸡腿</td>
+                                        <td>1947 g</td>
+                                        <td>1947 g</td>
+                                        <td class="success__color">富余 20 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>鸡腿</td>
+                                        <td>1947 g</td>
+                                        <td>1947 g</td>
+                                        <td class="danger__color">需要采购 2000 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2" colspan="2">总计</td>
+                                        <td>重量</td>
+                                        <td>20 g</td>
+                                    </tr>
+                                    <tr>
+                                        <td>价格</td>
+                                        <td>200 刀</td>
+                                    </tr>
+                                   
+    
+                                </tbody>
+                              </table>
+    
                         </div>
-                    </div>
     
-    
-                    <hr>
-
-                    <div class="card__body">
-
-                        <table class="table">
-                            <thead>
-                              <tr>
-                                <th>材料</th>
-                                <th>最优方案</th>
-                                <th colspan="2">实际重量</th>
-                              </tr>
-                            </thead>
-                            <tbody id="optimalList">
-                               
-                                <tr>
-                                    <td>鸡腿</td>
-                                    <td>1947 g</td>
-                                    <td>1947 g</td>
-                                    <td class="warning__color">缺少 10 g</td>
-                                </tr>
-                                <tr>
-                                    <td>鸡腿</td>
-                                    <td>1947 g</td>
-                                    <td>1947 g</td>
-                                    <td class="success__color">富余 20 g</td>
-                                </tr>
-                                <tr>
-                                    <td>鸡腿</td>
-                                    <td>1947 g</td>
-                                    <td>1947 g</td>
-                                    <td class="danger__color">需要采购 2000 g</td>
-                                </tr>
-                                <tr>
-                                    <td rowspan="2" colspan="2">总计</td>
-                                    <td>重量</td>
-                                    <td>20 g</td>
-                                </tr>
-                                <tr>
-                                    <td>价格</td>
-                                    <td>200 刀</td>
-                                </tr>
-                               
-
-                            </tbody>
-                          </table>
 
                     </div>
-
-
                 </div>
-            </div>
-
-        </div>
-
-
-            
     
+            </div>
+        </main>
+
+
 
         <footer class="my-5 pt-5 text-muted text-center text-small">
-            <p class="mb-1">© 2022 Kreal</p>
+            <p class="mb-1">© 2022 Kason</p>
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="#">Privacy</a></li>
                 <li class="list-inline-item"><a href="#">Terms</a></li>

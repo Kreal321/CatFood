@@ -26,7 +26,7 @@ class Ingredient {
     if (this.diffValue < 0) {
       this.diffValue = -this.diffValue;
       if (this.diffValue > 200) {
-        this.status = "danger";
+        this.status = "danger-emphasis";
         this.note = "需要采购";
       } else {
         this.status = "warning";
@@ -43,11 +43,11 @@ class Ingredient {
 
   changeUnitTo (u) {
     if (u == METRIC) {
-      this.currentValue = this.currentValue / 453.6;
-      this.unitPrice = this.unitPrice * 453.6;
+      this.currentValue = this.currentValue / 28.35;
+      this.unitPrice = this.unitPrice * 28.35;
     } else if (u == STANDARD) {
-      this.currentValue = this.currentValue * 453.6;
-      this.unitPrice = this.unitPrice / 453.6;
+      this.currentValue = this.currentValue * 28.35;
+      this.unitPrice = this.unitPrice / 28.35;
     }
   }
 
@@ -69,7 +69,7 @@ var ingredients = [];
 const METRIC = 0, STANDARD = 1;
 const unitSign = {
   0: "g",
-  1: "lb",
+  1: "oz",
 };
 var unit = recipes.unit;
 
@@ -80,16 +80,17 @@ function updateRecipeDisplay() {
   const ingredientsBlock = document.getElementById("ingredients");
   ingredientsBlock.innerHTML = "";
   ingredients.forEach((i, idx) => {
+
     ingredientsBlock.innerHTML += `
-    <div class="col-12 ingredient">
-      <h3 class="input-label">${i.name}</h3>
-      <div class="input-group">
-          <span>重量</span>
-          <input type="number" step="any" placeholder="${unitSign[unit]}" value="${i.currentValue.toFixed(2)}" name="${idx}-weight">
-          <span>价格</span>
-          <input type="number" step="any" placeholder="per ${unitSign[unit]}" value="${i.unitPrice.toFixed(2)}" name="${idx}-price"}>
-          <button class="button button__flex button__transition-x" onclick="calculateCurrent(${idx})">选定 <i class="bi bi-chevron-right button__icon"></i></button>
-      </div>
+    <div class="mb-3">
+    <label class="form-label">${i.name}</label>
+    <div class="input-group">
+        <span class="input-group-text">重量</span>
+        <input type="number" class="form-control" step="any" placeholder="${unitSign[unit]}" value="${i.currentValue.toFixed(2)}" name="${idx}-weight">
+        <span class="input-group-text">价格</span>
+        <input type="number" class="form-control" step="any" placeholder="per ${unitSign[unit]}" value="${i.unitPrice.toFixed(2)}" name="${idx}-price"}>
+        <button class="btn btn-outline-secondary" onclick="calculateCurrent(${idx})"> 设为基准 <i class="bi bi-chevron-right"></i></button>
+    </div>
     </div>
     `;
   });
@@ -101,7 +102,7 @@ function updateRecipeDisplay() {
         <td>${i.name}</td>
         <td>${i.optimalValue.toFixed(2)} ${unitSign[unit]}</td>
         <td>${i.actualValue.toFixed(2)} ${unitSign[unit]}</td>
-        <td class="${i.status}__color">${i.note} ${i.diffValue.toFixed(2)} ${unitSign[unit]}</td>
+        <td class="text-${i.status}">${i.note} ${i.diffValue.toFixed(2)} ${unitSign[unit]}</td>
       </tr>
     `;
   });
@@ -210,7 +211,7 @@ function updateRecipe(recipe) {
   updateRecipeDisplay();
 }
 
-updateRecipe(recipes.recipes[1]);
+updateRecipe(recipes.recipes[0]);
 
 document.getElementById('calBtn').addEventListener('click', calculate);
 
